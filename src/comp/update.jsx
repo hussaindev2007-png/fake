@@ -220,7 +220,7 @@ export default function EditUser() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/users/${id}`);
+        const res = await fetch(`https://fake-3-nfop.onrender.com/users/${id}`);
 
         if (!res.ok) throw new Error("Failed to load user");
 
@@ -239,7 +239,7 @@ export default function EditUser() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/users/${id}`, {
+      const res = await fetch(`https://fake-3-nfop.onrender.com/users/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
@@ -312,3 +312,4 @@ export default function EditUser() {
     </div>
   );
 }
+
