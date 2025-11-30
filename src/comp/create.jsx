@@ -221,7 +221,7 @@ export default function Create() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/users", {
+      const res = await fetch("https://fake-3-nfop.onrender.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -316,3 +316,4 @@ export default function Create() {
     </div>
   );
 }
+
