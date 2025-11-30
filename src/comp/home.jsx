@@ -1,189 +1,4 @@
 
-
-// import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
-// export default function Home() {
-//   const [post, setPost] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   const fetchUsers = async () => {
-//     try {
-//       const res = await fetch("http://localhost:3000/users");
-//       if (!res.ok) throw new Error("Network error");
-
-//       const data = await res.json();
-//       setPost(data);
-//     } catch (error) {
-//       toast.error("Failed to load users");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchUsers();
-//   }, []);
-
-//   const handleDelete = async (id) => {
-//     const confirmDelete = window.confirm("Do you want to delete this user?");
-//     if (!confirmDelete) return;
-
-//     try {
-//       const res = await fetch(`http://localhost:3000/users/${id}`, {
-//         method: "DELETE",
-//       });
-
-//       if (!res.ok) throw new Error("Delete failed");
-
-//       toast.success("User deleted successfully!");
-//       setPost((prev) => prev.filter((u) => u.id !== id));
-//     } catch (error) {
-//       toast.error("Error deleting user");
-//     }
-//   };
-
-//   // Loading Animation
-//   if (loading) {
-//     return (
-//       <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-//         <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="min-h-screen p-10 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white flex justify-center">
-//       <ToastContainer position="top-right" autoClose={2000} />
-
-//       <div className="backdrop-blur-xl bg-white/10 shadow-2xl rounded-3xl p-8 w-full max-w-4xl border border-white/10 animate-fadeIn">
-//         <h1 className="text-3xl font-bold mb-6 text-center tracking-wide">
-//           User Dashboard
-//         </h1>
-
-//         <Link to="/create">
-//           <button className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2 rounded-xl hover:scale-105 transition-all duration-300 shadow-xl mb-4">
-//             + Create New User
-//           </button>
-//         </Link>
-
-//         <table className="min-w-full border-collapse rounded-xl overflow-hidden animate-slideUp">
-//           <thead>
-//             <tr className="bg-white/20 text-white text-left">
-//               <th className="py-3 px-4">Name</th>
-//               <th className="py-3 px-4">Email</th>
-//               <th className="py-3 px-4">Actions</th>
-//             </tr>
-//           </thead>
-
-//           <tbody>
-//             {post.length === 0 ? (
-//               <tr>
-//                 <td
-//                   colSpan="3"
-//                   className="text-center py-6 text-gray-300 text-lg font-medium"
-//                 >
-//                   ❌ No User Found
-//                 </td>
-//               </tr>
-//             ) : (
-//               post.map((data) => (
-//                 <tr
-//                   key={data.id}
-//                   className="border-b border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-[1.01]"
-//                 >
-//                   <td className="py-3 px-4 font-semibold text-gray-200">
-//                     {data.name}
-//                   </td>
-//                   <td className="py-3 px-4 text-gray-300">{data.email}</td>
-//                   <td className="py-3 px-4 space-x-2">
-//                     <Link
-//                       to={`/update/${data.id}`}
-//                       className="bg-green-500 text-white px-4 py-1 rounded-lg hover:bg-green-600 hover:scale-105 transition-all duration-300"
-//                     >
-//                       Edit
-//                     </Link>
-
-//                     <button
-//                       onClick={() => handleDelete(data.id)}
-//                       className="bg-red-500 text-white px-4 py-1 rounded-lg hover:bg-red-600 hover:scale-105 transition-all duration-300"
-//                     >
-//                       Delete
-//                     </button>
-//                   </td>
-//                 </tr>
-//               ))
-//             )}
-//           </tbody>
-//         </table>
-//       </div>
-
-//       {/* Custom animations */}
-//       <style>
-//         {`
-//         .animate-fadeIn {
-//           animation: fadeIn 0.9s ease-out;
-//         }
-//         @keyframes fadeIn {
-//           from { opacity: 0; transform: scale(0.95); }
-//           to { opacity: 1; transform: scale(1); }
-//         }
-
-//         .animate-slideUp {
-//           animation: slideUp 0.7s ease-out;
-//         }
-//         @keyframes slideUp {
-//           from { opacity: 0; transform: translateY(20px); }
-//           to { opacity: 1; transform: translateY(0); }
-//         }
-//       `}
-//       </style>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -246,7 +61,6 @@ export default function Home() {
     <div className="min-h-screen p-12 bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
       <ToastContainer autoClose={1800} />
 
-      {/* Main Container */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -257,7 +71,7 @@ export default function Home() {
           User Details
         </h1>
 
-        {/* Create Button */}
+  
         <div className="flex justify-end">
           <Link to="/create">
             <motion.button
@@ -270,7 +84,7 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Table */}
+      
         <motion.table
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -332,4 +146,5 @@ export default function Home() {
     </div>
   );
 }
+
 
