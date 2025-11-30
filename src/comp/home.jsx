@@ -196,7 +196,7 @@ export default function Home() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:3000/users");
+      const res = await fetch("https://fake-3-nfop.onrender.com/users");
       if (!res.ok) throw new Error("Network error");
 
       const data = await res.json();
@@ -217,7 +217,7 @@ export default function Home() {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/users/${id}`, {
+      const res = await fetch(`https://fake-3-nfop.onrender.com/users/${id}`, {
         method: "DELETE",
       });
 
@@ -332,3 +332,4 @@ export default function Home() {
     </div>
   );
 }
+
